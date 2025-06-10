@@ -34,6 +34,7 @@ public class PlasmaGun : MonoBehaviour
 
         if (OVRInput.GetDown(OVRInput.Button.SecondaryIndexTrigger))
         {
+            Debug.Log("shooting");
             Shoot();
         }
 

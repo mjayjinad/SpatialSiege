@@ -551,7 +551,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4991179727981412103}
   - component: {fileID: 2702930144171372285}
-  - component: {fileID: 6699995472237357245}
   m_Layer: 0
   m_Name: Sphere
   m_TagString: Untagged
@@ -674,27 +673,6 @@ SkinnedMeshRenderer:
     m_Center: {x: 0, y: 0.0014502117, z: 0.0012894394}
     m_Extent: {x: 0.018539555, y: 0.010721058, z: 0.015529844}
   m_DirtyAABB: 0
---- !u!135 &6699995472237357245
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2613556198304100086}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Radius: 1.2
-  m_Center: {x: 0, y: -0.000000029802322, z: 0.12894392}
 --- !u!1 &2747265268978836584
 GameObject:
   m_ObjectHideFlags: 0
@@ -1682,6 +1660,9 @@ GameObject:
   - component: {fileID: 9151710000874800484}
   - component: {fileID: 7755128804774827875}
   - component: {fileID: 4737187194431357608}
+  - component: {fileID: 8109345974162647001}
+  - component: {fileID: 1862142128972208019}
+  - component: {fileID: 6266420844861589862}
   m_Layer: 0
   m_Name: KillerDrone
   m_TagString: Untagged
@@ -1717,9 +1698,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ac9f38578c34f946bbf0b113a32991c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _agent: {fileID: 0}
-  _animator: {fileID: 0}
   isKillerDrone: 1
+  deathDelay: 5
 --- !u!114 &9151710000874800484
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1764,8 +1744,8 @@ NavMeshAgent:
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
-  m_Height: 1.9
-  m_BaseOffset: 1.7
+  m_Height: 2.05
+  m_BaseOffset: 2.2
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
 --- !u!82 &4737187194431357608
@@ -1825,7 +1805,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -1865,6 +1845,69 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!54 &8109345974162647001
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9001010414171678930}
+  serializedVersion: 4
+  m_Mass: 15
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!114 &1862142128972208019
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9001010414171678930}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2524fc1519733b4da8d7f7ce8a2f28b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 15
+  enemyManager: {fileID: 3243845229489853574}
+  isDead: 0
+--- !u!135 &6266420844861589862
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9001010414171678930}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.11091098
+  m_Center: {x: 0, y: 0.0004709661, z: 0}
 --- !u!1 &9003901850541753537
 GameObject:
   m_ObjectHideFlags: 0

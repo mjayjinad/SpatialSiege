@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 7976794395724332645}
   - component: {fileID: 9124642266595185250}
-  - component: {fileID: 9083177358281277084}
   m_Layer: 0
   m_Name: drone_fan_1
   m_TagString: Untagged
@@ -101,27 +100,6 @@ SkinnedMeshRenderer:
     m_Center: {x: -2.3186607, y: 1.3842317, z: 0.0050285906}
     m_Extent: {x: 0.68113923, y: 0.0947423, z: 0.13956068}
   m_DirtyAABB: 0
---- !u!65 &9083177358281277084
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 40999268916133540}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1.3622785, y: 1.6912346, z: 0.18948461}
-  m_Center: {x: 0.00008392334, y: 0.004734874, z: -0.020005355}
 --- !u!1 &1300177527734257816
 GameObject:
   m_ObjectHideFlags: 0
@@ -734,7 +712,6 @@ GameObject:
   m_Component:
   - component: {fileID: 8240664952346408149}
   - component: {fileID: 5010094919182811450}
-  - component: {fileID: 6584920042194119302}
   m_Layer: 0
   m_Name: drone_fan_2
   m_TagString: Untagged
@@ -825,27 +802,6 @@ SkinnedMeshRenderer:
     m_Center: {x: 2.3186607, y: 1.3842317, z: 0.0050285906}
     m_Extent: {x: 0.68113923, y: 0.0947423, z: 0.13956068}
   m_DirtyAABB: 0
---- !u!65 &6584920042194119302
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3963717474660997194}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1.3622785, y: 1.6432037, z: 0.18948461}
-  m_Center: {x: -0.00008392334, y: 0.01914561, z: -0.020005355}
 --- !u!1 &4237482459975318753
 GameObject:
   m_ObjectHideFlags: 0
@@ -888,7 +844,6 @@ GameObject:
   m_Component:
   - component: {fileID: 8630136010701897471}
   - component: {fileID: 1767378972536819615}
-  - component: {fileID: 1525052186484424766}
   m_Layer: 0
   m_Name: drone_body
   m_TagString: Untagged
@@ -979,27 +934,6 @@ SkinnedMeshRenderer:
     m_Center: {x: 0, y: 0.5873773, z: -0.29452622}
     m_Extent: {x: 1.1733286, y: 1.9132643, z: 1.5175332}
   m_DirtyAABB: 0
---- !u!65 &1525052186484424766
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4504430364811291571}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 2.3466573, y: 3.0350666, z: 2.7602384}
-  m_Center: {x: -0.000014543533, y: 0.26091388, z: 0.09398688}
 --- !u!1 &5022994642726500960
 GameObject:
   m_ObjectHideFlags: 0
@@ -1402,6 +1336,9 @@ GameObject:
   - component: {fileID: 6928054667723750466}
   - component: {fileID: 1739809825243327807}
   - component: {fileID: 5794915975476438130}
+  - component: {fileID: -4323703882311307226}
+  - component: {fileID: 1578754102009123424}
+  - component: {fileID: 5718952748741307578}
   m_Layer: 0
   m_Name: EnemyDrone
   m_TagString: Untagged
@@ -1437,8 +1374,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ac9f38578c34f946bbf0b113a32991c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _agent: {fileID: 0}
-  _animator: {fileID: 0}
   isKillerDrone: 0
 --- !u!114 &6928054667723750466
 MonoBehaviour:
@@ -1481,7 +1416,7 @@ NavMeshAgent:
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
-  m_Height: 2.4
+  m_Height: 2.2
   m_BaseOffset: 2.2
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
@@ -1542,7 +1477,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -1582,6 +1517,69 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!54 &-4323703882311307226
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8712112224948316810}
+  serializedVersion: 4
+  m_Mass: 15
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!114 &1578754102009123424
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8712112224948316810}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2524fc1519733b4da8d7f7ce8a2f28b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 10
+  enemyManager: {fileID: 5117464659897967918}
+  isDead: 0
+--- !u!135 &5718952748741307578
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8712112224948316810}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.08641488
+  m_Center: {x: 0, y: 0.113498025, z: 0}
 --- !u!1 &8748099237386478468
 GameObject:
   m_ObjectHideFlags: 0
