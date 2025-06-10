@@ -227,6 +227,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4695332569302774303}
   - component: {fileID: 7280409825412289517}
+  - component: {fileID: 5106162444053618418}
   m_Layer: 0
   m_Name: Mesh
   m_TagString: Untagged
@@ -249,6 +250,10 @@ Transform:
   m_Children:
   - {fileID: 4359542237725171991}
   - {fileID: 4991179727981412103}
+  - {fileID: 493278245696172674}
+  - {fileID: 4197417468629384410}
+  - {fileID: 7889982732014465700}
+  - {fileID: 432136259426743978}
   m_Father: {fileID: 2937008253182723884}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &7280409825412289517
@@ -273,6 +278,21 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &5106162444053618418
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 622977240162076128}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63e1a9b735d1bd246979d2d6c28967cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  baseTiltAngle: 15
+  maxTiltAngle: 45
+  tiltDistanceFactor: 1
 --- !u!1 &750029437613713999
 GameObject:
   m_ObjectHideFlags: 0
@@ -706,6 +726,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 3702455635940552618}
   m_LocalEulerAnglesHint: {x: -90, y: -89.99999, z: 0}
+--- !u!1 &2913271920970613010
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4197417468629384410}
+  m_Layer: 0
+  m_Name: ShootingPoint02
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4197417468629384410
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2913271920970613010}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1.043, y: 0, z: 1.418}
+  m_LocalScale: {x: 10, y: 10, z: 10}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4695332569302774303}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3012720030141593295
 GameObject:
   m_ObjectHideFlags: 0
@@ -1122,6 +1173,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 3702455635940552618}
   m_LocalEulerAnglesHint: {x: -90, y: 89.99999, z: 0}
+--- !u!1 &4553456204042661103
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7889982732014465700}
+  m_Layer: 0
+  m_Name: ShootingPoint03
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7889982732014465700
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4553456204042661103}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -1.031, y: 0, z: 1.418}
+  m_LocalScale: {x: 10, y: 10, z: 10}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4695332569302774303}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4720695453135222071
 GameObject:
   m_ObjectHideFlags: 0
@@ -1277,6 +1359,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 3702455635940552618}
   m_LocalEulerAnglesHint: {x: -90, y: 89.99999, z: 0}
+--- !u!1 &6860509078843676213
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 432136259426743978}
+  m_Layer: 0
+  m_Name: ShootingPoint04
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &432136259426743978
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6860509078843676213}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -1.33, y: 0, z: 1.418}
+  m_LocalScale: {x: 10, y: 10, z: 10}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4695332569302774303}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6897290550193890908
 GameObject:
   m_ObjectHideFlags: 0
@@ -1308,6 +1421,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 3702455635940552618}
   m_LocalEulerAnglesHint: {x: -90, y: -89.99999, z: 0}
+--- !u!1 &7086159812433531525
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 493278245696172674}
+  m_Layer: 0
+  m_Name: ShootingPoint01
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &493278245696172674
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7086159812433531525}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1.329, y: 0, z: 1.418}
+  m_LocalScale: {x: 10, y: 10, z: 10}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4695332569302774303}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7198730725597774734
 GameObject:
   m_ObjectHideFlags: 0
@@ -1535,8 +1679,9 @@ GameObject:
   m_Component:
   - component: {fileID: 2937008253182723884}
   - component: {fileID: 3243845229489853574}
+  - component: {fileID: 9151710000874800484}
   - component: {fileID: 7755128804774827875}
-  - component: {fileID: 3803800410153795429}
+  - component: {fileID: 4737187194431357608}
   m_Layer: 0
   m_Name: KillerDrone
   m_TagString: Untagged
@@ -1575,6 +1720,32 @@ MonoBehaviour:
   _agent: {fileID: 0}
   _animator: {fileID: 0}
   isKillerDrone: 1
+--- !u!114 &9151710000874800484
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9001010414171678930}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4bd08a648c251f64ebb6f2ae510a8683, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  linePrefab: {fileID: 3062009269961132419, guid: 52b7d1ba1e5f4924599932f334e80271, type: 3}
+  rayImpactPrefab: {fileID: 1240429802306983777, guid: fb1849d2ccb1cdc428415a737bb5156a, type: 3}
+  shootingPoints:
+  - {fileID: 493278245696172674}
+  - {fileID: 4197417468629384410}
+  - {fileID: 7889982732014465700}
+  - {fileID: 432136259426743978}
+  maxLineDistance: 5
+  lineShowTimer: 0.2
+  audioSource: {fileID: 4737187194431357608}
+  audioClip: {fileID: 8300000, guid: c23f3bdb7d6052c4abc19b69a21559a6, type: 3}
+  layermask:
+    serializedVersion: 2
+    m_Bits: 1
 --- !u!195 &7755128804774827875
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -1597,21 +1768,103 @@ NavMeshAgent:
   m_BaseOffset: 1.7
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &3803800410153795429
-MonoBehaviour:
+--- !u!82 &4737187194431357608
+AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9001010414171678930}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 63e1a9b735d1bd246979d2d6c28967cd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  baseTiltAngle: 15
-  maxTiltAngle: 45
-  tiltDistanceFactor: 1
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 0.01
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &9003901850541753537
 GameObject:
   m_ObjectHideFlags: 0
