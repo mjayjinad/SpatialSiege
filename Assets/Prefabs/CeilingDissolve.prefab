@@ -132,6 +132,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4ac0f6c1f2e9224b89fb6b6ab3b31c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  transitionDuration: 2
 --- !u!1 &3492873410020961012
 GameObject:
   m_ObjectHideFlags: 0
@@ -143,7 +144,6 @@ GameObject:
   - component: {fileID: 3862781527823347116}
   - component: {fileID: 1384640171922850110}
   - component: {fileID: 1881446084036593500}
-  - component: {fileID: 4837339612621571791}
   m_Layer: 0
   m_Name: StencilMesh
   m_TagString: Untagged
@@ -219,15 +219,3 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &4837339612621571791
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3492873410020961012}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c4ac0f6c1f2e9224b89fb6b6ab3b31c1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
