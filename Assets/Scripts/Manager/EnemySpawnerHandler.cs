@@ -23,7 +23,6 @@ public class EnemySpawnerHandler : MonoBehaviour
         else
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject);
         }
     }
 
@@ -31,10 +30,10 @@ public class EnemySpawnerHandler : MonoBehaviour
     void Start()
     {
         //MRUK.Instance.SceneLoadedEvent.AddListener(InitializeWave);
-        InitializeWave();
+        //InitializeWave();
     }
 
-    private void InitializeWave()
+    public void InitializeWave()
     {
         currentWave = Wave.Wave1;
         GameEventManager.Instance.OnWaveEnded(currentWave);
@@ -44,8 +43,9 @@ public class EnemySpawnerHandler : MonoBehaviour
     private void Update()
     {
         if (!waveInitialized) return;
-        if(spawnedDrone == null || spawnedDrone.Count == 0)
+        if(spawnedDrone.Count == 0)
         {
+            Debug.Log("Next wave called");
             LoadNextWave();
         }
     }

@@ -28,7 +28,6 @@ public class OrbSpawner : MonoBehaviour
         else
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject);
         }
     }
 
@@ -36,10 +35,10 @@ public class OrbSpawner : MonoBehaviour
     void Start()
     {
         //MRUK.Instance.RegisterSceneLoadedCallback(InitializeOrb);
-        InitializeOrb();
+        //InitializeOrb();
     }
 
-    private void InitializeOrb()
+    public void InitializeOrb()
     {
         StartCoroutine(DelayOrbSpawning());
     }
@@ -99,6 +98,7 @@ public class OrbSpawner : MonoBehaviour
         {
             return true;
         }
+        Debug.Log("Couldn't find a position");
         return false;
     }
 

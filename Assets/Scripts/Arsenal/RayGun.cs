@@ -45,11 +45,10 @@ public class RayGun : MonoBehaviour
                 // Check if the hit object is the player
                 if (hit.collider.CompareTag("Player"))
                 {
-                    // Reduce player's health (assumes a health script exists on the player)
                     PlayerHealthManager playerHealth = hit.collider.GetComponent<PlayerHealthManager>();
                     if (playerHealth != null)
                     {
-                        playerHealth.TakeDamage(0.5f);  // Assuming TakeDamage is a method in the PlayerHealth script
+                        playerHealth.TakeDamage(0.5f);
                     }
                 }
 
@@ -73,7 +72,7 @@ public class RayGun : MonoBehaviour
         }
 
         // Wait for the line to be destroyed before shooting again
-        yield return new WaitForSeconds(lineShowTimer * 2);
+        yield return new WaitForSeconds(lineShowTimer * 3);
 
         // Set shooting flag back to false after shooting is done
         isShooting = false;

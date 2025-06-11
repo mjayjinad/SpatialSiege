@@ -70,49 +70,6 @@ public class EnemyManager : MonoBehaviour
         }
     }
 
-    public Transform GetClosestOrb()
-    {
-        Transform closest = null;
-        float minDistance = Mathf.Infinity;
-
-        List<Transform> orbs = OrbSpawner.Instance.spawnedOrbs;
-
-        // Use OverlapSphere to detect orbs within range
-        Collider[] hitColliders = Physics.OverlapSphere(transform.position, detectionRange, orbDetectionLayer);
-
-        // Loop through all colliders detected by OverlapSphere
-        foreach (var hitCollider in hitColliders)
-        {
-            // Check if the collider is an orb
-            if (orbs.Contains(hitCollider.transform))
-            {
-                Vector3 orbPosition = hitCollider.transform.position;
-                orbPosition.y = 0;  // Ensure the y-position is neutral for comparison
-
-                // Calculate the distance to this orb
-                Vector3 directionToOrb = orbPosition - transform.position;
-                directionToOrb.y = 0; // Ignore the vertical axis to make it horizontal
-
-                float distance = directionToOrb.magnitude;
-
-                // Check if this orb is closer than the previous closest
-                if (distance < minDistance)
-                {
-                    minDistance = distance;
-                    closest = hitCollider.transform;
-                }
-            }
-        }
-
-        // If the closest orb is within the eating distance, destroy it
-        if (minDistance < eatDistance && closest != null)
-        {
-            OrbSpawner.Instance.DestroyOrb(closest.gameObject);
-        }
-
-        return closest;
-    }
-
     //public Transform GetClosestOrb()
     //{
     //    Transform closest = null;
@@ -120,29 +77,72 @@ public class EnemyManager : MonoBehaviour
 
     //    List<Transform> orbs = OrbSpawner.Instance.spawnedOrbs;
 
-    //    foreach (var item in orbs)
+    //    // Use OverlapSphere to detect orbs within range
+    //    Collider[] hitColliders = Physics.OverlapSphere(transform.position, detectionRange, orbDetectionLayer);
+
+    //    // Loop through all colliders detected by OverlapSphere
+    //    foreach (var hitCollider in hitColliders)
     //    {
-    //        Vector3 dronePosition = transform.position;
-    //        dronePosition.y = 0;
-    //        Vector3 orbPosition = item.transform.position;
-    //        orbPosition.y = 0;
-
-    //        float distance = Vector3.Distance(dronePosition, orbPosition);
-
-    //        if (distance < minDistance)
+    //        // Check if the collider is an orb
+    //        if (orbs.Contains(hitCollider.transform))
     //        {
-    //            minDistance = distance;
-    //            closest = item;
+    //            Vector3 orbPosition = hitCollider.transform.position;
+    //            orbPosition.y = 0;  // Ensure the y-position is neutral for comparison
+
+    //            // Calculate the distance to this orb
+    //            Vector3 directionToOrb = orbPosition - transform.position;
+    //            directionToOrb.y = 0; // Ignore the vertical axis to make it horizontal
+
+    //            float distance = directionToOrb.magnitude;
+
+    //            // Check if this orb is closer than the previous closest
+    //            if (distance < minDistance)
+    //            {
+    //                minDistance = distance;
+    //                closest = hitCollider.transform;
+    //            }
     //        }
     //    }
 
-    //    if (minDistance < eatDistance)
+    //    // If the closest orb is within the eating distance, destroy it
+    //    if (minDistance < eatDistance && closest != null)
     //    {
     //        OrbSpawner.Instance.DestroyOrb(closest.gameObject);
     //    }
 
     //    return closest;
     //}
+
+    public Transform GetClosestOrb()
+    {
+        Transform closest = null;
+        float minDistance = Mathf.Infinity;
+
+        List<Transform> orbs = OrbSpawner.Instance.spawnedOrbs;
+
+        foreach (var item in orbs)
+        {
+            Vector3 dronePosition = transform.position;
+            dronePosition.y = 0;
+            Vector3 orbPosition = item.transform.position;
+            orbPosition.y = 0;
+
+            float distance = Vector3.Distance(dronePosition, orbPosition);
+
+            if (distance < minDistance)
+            {
+                minDistance = distance;
+                closest = item;
+            }
+        }
+
+        if (minDistance < eatDistance)
+        {
+            OrbSpawner.Instance.DestroyOrb(closest.gameObject);
+        }
+
+        return closest;
+    }
 
     private bool IsPlayerInRange()
     {
@@ -154,6 +154,7 @@ public class EnemyManager : MonoBehaviour
         {
             if (hitCollider.CompareTag("Player")) // Assuming player has the "Player" tag
             {
+                Debug.Log(hitCollider.transform.name);
                 return true;  // Player detected within range
             }
         }

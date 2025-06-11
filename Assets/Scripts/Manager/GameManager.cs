@@ -1,4 +1,5 @@
 using GorillaZilla;
+using Meta.XR.MRUtilityKit;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -8,6 +9,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] OVRPassthroughLayer aliveLayer;
     [SerializeField] OVRPassthroughLayer winLayer;
     [SerializeField] OVRPassthroughLayer deadLayer;
+
+    [SerializeField] private OrbSpawner orbSpawner;
 
     private PassthroughLayerController passthroughLayerController;
     public static GameManager Instance { get; private set; }
@@ -27,7 +30,8 @@ public class GameManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        AlivePlayerState();
+        passthroughLayerController = GetComponent<PassthroughLayerController>();
+        MRUK.Instance.RegisterSceneLoadedCallback(AlivePlayerState);
     }
 
     // Update is called once per frame
@@ -53,6 +57,12 @@ public class GameManager : MonoBehaviour
 
     public void RestartGame()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().ToString());
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    public void StartGame()
+    {
+        EnemySpawnerHandler.Instance.InitializeWave();
+        orbSpawner.InitializeOrb();
     }
 }

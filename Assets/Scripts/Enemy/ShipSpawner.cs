@@ -10,8 +10,7 @@ public class ShipSpawner : MonoBehaviour
 
     void Start()
     {
-        //MRUK.Instance.SceneLoadedEvent.AddListener(SpawnSpaceShip);
-        SpawnSpaceShip();
+        MRUK.Instance.SceneLoadedEvent.AddListener(SpawnSpaceShip);
     }
 
     private void SpawnSpaceShip()

@@ -11,7 +11,7 @@ public class DissolveMaterialManager : MonoBehaviour
     void Start()
     {
         material = GetComponent<MeshRenderer>().material;
-        StartMaterialDissolve(false);
+        //StartMaterialDissolve(false);
         GameEventManager.Instance.OnWaveEndedEventForMaterial += StartMaterialDissolve;
         GameEventManager.Instance.OnEnemyReachedTargetPosEvent += StartMaterialDissolve;
     }

@@ -26,7 +26,7 @@ public class DroneSpawner : MonoBehaviour
     private int completedEnemies = 0;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         GameEventManager.Instance.OnWaveEndedEvent += EnemyWave;
     }
@@ -48,7 +48,6 @@ public class DroneSpawner : MonoBehaviour
             enemySpawned = Instantiate(EnemyToSpawn().gameObject, spawnPos, Quaternion.identity);
             StartCoroutine(LerpEnemyToRoomPos(enemySpawned, spawnPos));
             EnemySpawnerHandler.Instance.spawnedDrone.Add(enemySpawned);
-
             spawnCount++;
 
             yield return new WaitForSeconds(_spawnWaitTime);

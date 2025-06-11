@@ -1701,7 +1701,7 @@ MonoBehaviour:
   patrol: 0
   isKillerDrone: 1
   deathDelay: 5
-  eatDistance: 0.2
+  eatDistance: 0.3
   detectionRange: 1.5
   playerDetectionLayer:
     serializedVersion: 2
@@ -1734,7 +1734,7 @@ MonoBehaviour:
   audioClip: {fileID: 8300000, guid: c23f3bdb7d6052c4abc19b69a21559a6, type: 3}
   layermask:
     serializedVersion: 2
-    m_Bits: 1
+    m_Bits: 129
 --- !u!195 &7755128804774827875
 NavMeshAgent:
   m_ObjectHideFlags: 0
