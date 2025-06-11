@@ -30,6 +30,7 @@ public class DroneSpawner : MonoBehaviour
     {
         GameEventManager.Instance.OnWaveEndedEvent += EnemyWave;
     }
+
     private void EnemyWave(Wave waveIndex)
     {
         InitializeWaveCount(waveIndex);

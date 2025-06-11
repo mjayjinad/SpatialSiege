@@ -729,9 +729,9 @@ Transform:
   m_GameObject: {fileID: 2913271920970613010}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.043, y: 0, z: 1.418}
-  m_LocalScale: {x: 10, y: 10, z: 10}
-  m_ConstrainProportionsScale: 0
+  m_LocalPosition: {x: 1.18, y: -0.2, z: 1.418}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 4695332569302774303}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1176,9 +1176,9 @@ Transform:
   m_GameObject: {fileID: 4553456204042661103}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.031, y: 0, z: 1.418}
-  m_LocalScale: {x: 10, y: 10, z: 10}
-  m_ConstrainProportionsScale: 0
+  m_LocalPosition: {x: -1.2, y: 0.17, z: 1.418}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 4695332569302774303}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1362,9 +1362,9 @@ Transform:
   m_GameObject: {fileID: 6860509078843676213}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.33, y: 0, z: 1.418}
-  m_LocalScale: {x: 10, y: 10, z: 10}
-  m_ConstrainProportionsScale: 0
+  m_LocalPosition: {x: -1.18, y: -0.2, z: 1.418}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 4695332569302774303}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1424,9 +1424,9 @@ Transform:
   m_GameObject: {fileID: 7086159812433531525}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.329, y: 0, z: 1.418}
-  m_LocalScale: {x: 10, y: 10, z: 10}
-  m_ConstrainProportionsScale: 0
+  m_LocalPosition: {x: 1.2, y: 0.17, z: 1.418}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 4695332569302774303}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1698,8 +1698,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ac9f38578c34f946bbf0b113a32991c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  patrol: 0
   isKillerDrone: 1
   deathDelay: 5
+  eatDistance: 0.2
+  detectionRange: 1.5
+  playerDetectionLayer:
+    serializedVersion: 2
+    m_Bits: 128
+  orbDetectionLayer:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!114 &9151710000874800484
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1868,7 +1877,7 @@ Rigidbody:
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 0
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0

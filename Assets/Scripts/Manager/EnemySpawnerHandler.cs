@@ -30,7 +30,8 @@ public class EnemySpawnerHandler : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        MRUK.Instance.SceneLoadedEvent.AddListener(InitializeWave);
+        //MRUK.Instance.SceneLoadedEvent.AddListener(InitializeWave);
+        InitializeWave();
     }
 
     private void InitializeWave()
@@ -51,8 +52,20 @@ public class EnemySpawnerHandler : MonoBehaviour
 
     private void LoadNextWave()
     {
-        waveIndex++;
-        currentWave = (Wave)waveIndex;
-        GameEventManager.Instance.OnWaveEnded(currentWave);
+        if(currentWave != Wave.Wave4)
+        {
+            waveIndex++;
+            currentWave = (Wave)waveIndex;
+            GameEventManager.Instance.OnWaveEnded(currentWave);
+        }
+        else
+        {
+            GameWon();
+        }
+    }
+
+    private void GameWon()
+    {
+        GameManager.Instance.WinPlayerState();
     }
 }

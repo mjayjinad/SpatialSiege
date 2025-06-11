@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 using System.Collections.Generic;
 
 public class RayGun : MonoBehaviour
@@ -12,17 +13,21 @@ public class RayGun : MonoBehaviour
     [SerializeField] private AudioClip audioClip;
     [SerializeField] private LayerMask layermask;
 
-    // Update is called once per frame
-    void Update()
-    {
-        if (OVRInput.GetDown(OVRInput.Button.Two))
-        {
-            Shoot();
-        }
-    }
+    private bool isShooting = false; // Track if shooting is currently happening
 
     public void Shoot()
     {
+        // Only allow shooting if not already shooting
+        if (isShooting) return;
+
+        StartCoroutine(ShootWithDelay());
+    }
+
+    private IEnumerator ShootWithDelay()
+    {
+        // Set shooting flag to true
+        isShooting = true;
+
         audioSource.PlayOneShot(audioClip);
 
         // Loop through each shooting point
@@ -36,6 +41,18 @@ public class RayGun : MonoBehaviour
             if (hasHit)
             {
                 endPoint = hit.point;
+
+                // Check if the hit object is the player
+                if (hit.collider.CompareTag("Player"))
+                {
+                    // Reduce player's health (assumes a health script exists on the player)
+                    PlayerHealthManager playerHealth = hit.collider.GetComponent<PlayerHealthManager>();
+                    if (playerHealth != null)
+                    {
+                        playerHealth.TakeDamage(0.5f);  // Assuming TakeDamage is a method in the PlayerHealth script
+                    }
+                }
+
                 Quaternion rayImpactRotation = Quaternion.LookRotation(-hit.normal);
                 GameObject rayImpact = Instantiate(rayImpactPrefab, hit.point, rayImpactRotation);
                 Destroy(rayImpact, 0.3f);
@@ -54,5 +71,11 @@ public class RayGun : MonoBehaviour
             // Destroy the line renderer after some time
             Destroy(line.gameObject, lineShowTimer);
         }
+
+        // Wait for the line to be destroyed before shooting again
+        yield return new WaitForSeconds(lineShowTimer * 2);
+
+        // Set shooting flag back to false after shooting is done
+        isShooting = false;
     }
 }
