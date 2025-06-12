@@ -75,6 +75,7 @@ public class GameManager : MonoBehaviour
 
     public void RestartGame()
     {
+        orbSpawner.GameOver();
         homepageUI.SetActive(true);
         gameOverUI.SetActive(false);
         winUI.SetActive(false);

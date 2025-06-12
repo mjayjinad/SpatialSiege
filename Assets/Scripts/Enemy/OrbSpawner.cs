@@ -84,12 +84,15 @@ public class OrbSpawner : MonoBehaviour
 
     public void GameOver()
     {
-        foreach (var orb in spawnedOrbs)
+        if(spawnedOrbs.Count > 0 || spawnedOrbs != null)
         {
-            Destroy(orb.gameObject);
-        }
+            foreach (var orb in spawnedOrbs)
+            {
+                Destroy(orb.gameObject);
+            }
 
-        spawnedOrbs.Clear();
+            spawnedOrbs.Clear();
+        }
     }
 
     private void ReloadOrbsOnWaveEnded(Wave wave)
