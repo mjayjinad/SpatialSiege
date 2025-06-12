@@ -39,15 +39,18 @@ public class PlayerHealthManager : MonoBehaviour
         switch (value)
         {
             case Wave.Wave1:
-                health = 10;
+                health = 8;
                 break;
             case Wave.Wave2:
-                health = 20;
+                health = 16;
                 break;
             case Wave.Wave3:
-                health = 30;
+                health = 24;
                 break;
             case Wave.Wave4:
+                health = 32;
+                break;
+            case Wave.Wave5:
                 health = 40;
                 break;
         }

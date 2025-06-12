@@ -707,6 +707,7 @@ MonoBehaviour:
   aliveLayer: {fileID: 1007192766}
   winLayer: {fileID: 144441189}
   deadLayer: {fileID: 770555878}
+  player: {fileID: 2127648607}
   orbSpawner: {fileID: 1163433228}
   winUI: {fileID: 1847690793}
   gameOverUI: {fileID: 1998460016}
@@ -3053,6 +3054,10 @@ PrefabInstance:
     - target: {fileID: 8418012049953180680, guid: 9fe1a73fb764de64f9a031c93e66bc28, type: 3}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8418012049953180680, guid: 9fe1a73fb764de64f9a031c93e66bc28, type: 3}
+      propertyPath: _maxBullet
+      value: 30
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -8650,6 +8655,7 @@ MonoBehaviour:
   spawnedDrone: []
   currentWave: 0
   waveInitialized: 0
+  isGameOver: 0
 --- !u!114 &1163433228
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16366,6 +16372,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 200
+  isPlayerDead: 0
+--- !u!4 &2127648607 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3903482225804038112, guid: 0a7d2469f24041c4284c66706f84c45e, type: 3}
+  m_PrefabInstance: {fileID: 562729512}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2139648886
 GameObject:
   m_ObjectHideFlags: 0

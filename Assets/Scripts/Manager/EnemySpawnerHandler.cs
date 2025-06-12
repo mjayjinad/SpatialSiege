@@ -46,7 +46,7 @@ public class EnemySpawnerHandler : MonoBehaviour
 
     private void LoadNextWave()
     {
-        if(currentWave != Wave.Wave4)
+        if(currentWave != Wave.Wave5)
         {
             waveIndex++;
             currentWave = (Wave)waveIndex;

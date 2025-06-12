@@ -10,7 +10,8 @@ public enum Wave
     Wave1,
     Wave2, 
     Wave3,
-    Wave4
+    Wave4,
+    Wave5
 }
 
 public class DroneSpawner : MonoBehaviour
@@ -115,6 +116,9 @@ public class DroneSpawner : MonoBehaviour
                 break;
             case Wave.Wave4:
                 _maxSpawnCount = 16;
+                break;
+            case Wave.Wave5:
+                _maxSpawnCount = 20;
                 break;
         }
     }
