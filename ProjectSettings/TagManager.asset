@@ -16,6 +16,7 @@ TagManager:
   - QDSUITextSecondaryColor
   - QDSUIBackplateGradient
   - Plasma
+  - Floor
   layers:
   - Default
   - TransparentFX

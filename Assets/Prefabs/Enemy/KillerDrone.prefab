@@ -1770,7 +1770,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 0.01
+  m_Volume: 0.05
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -1893,7 +1893,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2524fc1519733b4da8d7f7ce8a2f28b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 15
+  health: 6
   enemyManager: {fileID: 3243845229489853574}
   isDead: 0
 --- !u!135 &6266420844861589862

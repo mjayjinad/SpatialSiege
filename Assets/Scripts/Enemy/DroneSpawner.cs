@@ -105,16 +105,16 @@ public class DroneSpawner : MonoBehaviour
         switch (value)
         {
             case Wave.Wave1:
-                _maxSpawnCount = 5;
+                _maxSpawnCount = 4;
                 break;
             case Wave.Wave2:
-                _maxSpawnCount = 10;
+                _maxSpawnCount = 8;
                 break;
             case Wave.Wave3:
-                _maxSpawnCount = 15;
+                _maxSpawnCount = 12;
                 break;
             case Wave.Wave4:
-                _maxSpawnCount = 20;
+                _maxSpawnCount = 16;
                 break;
         }
     }
@@ -122,5 +122,10 @@ public class DroneSpawner : MonoBehaviour
     private EnemyManager EnemyToSpawn()
     {
         return drones[Random.Range(0, drones.Length)];
+    }
+
+    private void OnDestroy()
+    {
+        GameEventManager.Instance.OnWaveEndedEvent -= EnemyWave;
     }
 }

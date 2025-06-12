@@ -15,6 +15,14 @@ public class TTSText : MonoBehaviour
     private void OnDisable()
     {
         TTSSpeaker speaker = GameObject.FindFirstObjectByType<TTSSpeaker>();
-        speaker.Stop();
+        if (speaker != null)
+            speaker.Stop();
+    }
+
+    private void OnDestroy()
+    {
+        TTSSpeaker speaker = GameObject.FindFirstObjectByType<TTSSpeaker>();
+        if(speaker != null )
+            speaker.Stop();
     }
 }

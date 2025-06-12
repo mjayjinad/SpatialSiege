@@ -11,6 +11,12 @@ public class GameManager : MonoBehaviour
     [SerializeField] OVRPassthroughLayer deadLayer;
 
     [SerializeField] private OrbSpawner orbSpawner;
+    [SerializeField] private GameObject winUI;
+    [SerializeField] private GameObject gun;
+    [SerializeField] private AudioSource speaker;
+    [SerializeField] private AudioClip gameSoundClip;
+    [SerializeField] private AudioClip gameOverClip;
+    [SerializeField] private AudioClip gameWinClip;
 
     private PassthroughLayerController passthroughLayerController;
     public static GameManager Instance { get; private set; }
@@ -34,12 +40,6 @@ public class GameManager : MonoBehaviour
         MRUK.Instance.RegisterSceneLoadedCallback(AlivePlayerState);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     private void AlivePlayerState()
     {
         passthroughLayerController.SetActiveLayer(aliveLayer);
@@ -48,11 +48,17 @@ public class GameManager : MonoBehaviour
     public void DeadPlayerState()
     {
         passthroughLayerController.SetActiveLayer(deadLayer);
+
+        gun.SetActive(false);
+        PlaySound(gameOverClip, false);
     }
 
     public void WinPlayerState()
     {
+        PlaySound(gameWinClip, false);
+        gun.SetActive(false);
         passthroughLayerController.SetActiveLayer(winLayer);
+        winUI.SetActive(true);
     }
 
     public void RestartGame()
@@ -64,5 +70,14 @@ public class GameManager : MonoBehaviour
     {
         EnemySpawnerHandler.Instance.InitializeWave();
         orbSpawner.InitializeOrb();
+        PlaySound(gameSoundClip, true);
+    }
+
+    private void PlaySound(AudioClip clip, bool value)
+    {
+        speaker.Stop();
+        speaker.loop = value;
+        speaker.clip = clip;
+        speaker.Play();
     }
 }

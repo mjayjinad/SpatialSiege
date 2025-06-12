@@ -48,13 +48,13 @@ public class RayGun : MonoBehaviour
                     PlayerHealthManager playerHealth = hit.collider.GetComponent<PlayerHealthManager>();
                     if (playerHealth != null)
                     {
-                        playerHealth.TakeDamage(0.5f);
+                        playerHealth.TakeDamage(0.1f);
                     }
                 }
 
-                Quaternion rayImpactRotation = Quaternion.LookRotation(-hit.normal);
-                GameObject rayImpact = Instantiate(rayImpactPrefab, hit.point, rayImpactRotation);
-                Destroy(rayImpact, 0.3f);
+                //Quaternion rayImpactRotation = Quaternion.LookRotation(-hit.normal);
+                //GameObject rayImpact = Instantiate(rayImpactPrefab, hit.point, rayImpactRotation);
+                //Destroy(rayImpact, 0.3f);
             }
             else
             {
@@ -62,7 +62,7 @@ public class RayGun : MonoBehaviour
             }
 
             // Create the line renderer
-            LineRenderer line = Instantiate(linePrefab);
+            LineRenderer line = Instantiate(linePrefab, shootingPoint);
             line.positionCount = 2;
             line.SetPosition(0, shootingPoint.position);
             line.SetPosition(1, endPoint);

@@ -1,6 +1,7 @@
 using NUnit.Framework;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -196,7 +197,12 @@ public class EnemyManager : MonoBehaviour
         Destroy(gameObject);
     }
 
+    private void OnDestroy()
+    {
+        GameEventManager.Instance.OnEnemyReachedTargetPosEvent -= InitializeNavmeshAgent;
+    }
 
+#if UNITY_EDITOR
     private void OnDrawGizmos()
     {
         // Only draw the Gizmo if the enemy is not dead
@@ -205,5 +211,11 @@ public class EnemyManager : MonoBehaviour
             Gizmos.color = Color.red;  // Color the Gizmo to indicate danger or detection range
             Gizmos.DrawWireSphere(transform.position, detectionRange);  // Draw the sphere at the drone's position
         }
+    }
+#endif
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (!collision.gameObject.CompareTag("Floor")) return;
+        rb.isKinematic = true;
     }
 }

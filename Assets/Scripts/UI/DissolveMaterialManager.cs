@@ -44,4 +44,10 @@ public class DissolveMaterialManager : MonoBehaviour
         // Ensure the final texture is fully transitioned
         material.SetFloat("_Dissolve", endValue);
     }
+
+    private void OnDestroy()
+    {
+        GameEventManager.Instance.OnWaveEndedEventForMaterial -= StartMaterialDissolve;
+        GameEventManager.Instance.OnEnemyReachedTargetPosEvent -= StartMaterialDissolve;
+    }
 }

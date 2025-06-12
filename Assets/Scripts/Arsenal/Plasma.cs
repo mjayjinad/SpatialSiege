@@ -11,6 +11,6 @@ public class Plasma : MonoBehaviour
 
     public void OnCollisionEnter(Collision col) 
     {
-        Destroy(gameObject, 3);
+        Destroy(gameObject, 0.2f);
     }
 }

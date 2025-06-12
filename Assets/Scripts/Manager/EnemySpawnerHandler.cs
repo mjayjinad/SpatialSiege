@@ -10,6 +10,7 @@ public class EnemySpawnerHandler : MonoBehaviour
     public Wave currentWave;
     private int waveIndex = 0;
     public bool waveInitialized = false;
+    private bool isGameOver;
 
     // Singleton instance
     public static EnemySpawnerHandler Instance { get; private set; }
@@ -43,7 +44,7 @@ public class EnemySpawnerHandler : MonoBehaviour
     private void Update()
     {
         if (!waveInitialized) return;
-        if(spawnedDrone.Count == 0)
+        if(spawnedDrone.Count == 0 && isGameOver == false)
         {
             Debug.Log("Next wave called");
             LoadNextWave();
@@ -61,6 +62,7 @@ public class EnemySpawnerHandler : MonoBehaviour
         else
         {
             GameWon();
+            isGameOver = true;
         }
     }
 

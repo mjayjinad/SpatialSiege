@@ -36,6 +36,7 @@ public class OrbSpawner : MonoBehaviour
     {
         //MRUK.Instance.RegisterSceneLoadedCallback(InitializeOrb);
         //InitializeOrb();
+        GameEventManager.Instance.OnWaveEndedEvent += ReloadOrbsOnWaveEnded;
     }
 
     public void InitializeOrb()
@@ -102,6 +103,16 @@ public class OrbSpawner : MonoBehaviour
         return false;
     }
 
+    private void ReloadOrbsOnWaveEnded(Wave wave)
+    {
+        foreach (var orb in spawnedOrbs)
+        {
+            Destroy(orb.gameObject);
+        }
+
+        spawnedOrbs.Clear();
+        SpawnOrbs();
+    }
 
     public void DestroyOrb(GameObject orb)
     {
@@ -112,5 +123,10 @@ public class OrbSpawner : MonoBehaviour
         {
             SpawnOrbs();
         }
+    }
+
+    private void OnDestroy()
+    {
+        GameEventManager.Instance.OnWaveEndedEvent -= ReloadOrbsOnWaveEnded;
     }
 }
