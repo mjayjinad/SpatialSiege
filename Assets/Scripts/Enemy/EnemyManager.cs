@@ -7,13 +7,6 @@ using UnityEngine.AI;
 
 public class EnemyManager : MonoBehaviour
 {
-    public enum Patrol
-    {
-        Player,
-        Orb
-    }
-
-    [SerializeField] private Patrol patrol;
     [SerializeField] private bool isKillerDrone;
     [SerializeField] private float deathDelay = 5;
     [SerializeField] private float eatDistance = 0.2f;
@@ -52,67 +45,21 @@ public class EnemyManager : MonoBehaviour
 
         if (IsPlayerInRange())
         {
-            patrol = Patrol.Player;
             _agent.stoppingDistance = stopingDistance;
             SetInvestigationPoint(playerPos);
             rayGun.Shoot();
         }
         else
         {
-            Debug.Log("going to orb");
             Transform closest = GetClosestOrb();
             if (closest)
             {
-                patrol = Patrol.Orb;
                 investigationPoint = closest.position;
                 _agent.stoppingDistance = 0;
                 SetInvestigationPoint(investigationPoint);
             }
         }
     }
-
-    //public Transform GetClosestOrb()
-    //{
-    //    Transform closest = null;
-    //    float minDistance = Mathf.Infinity;
-
-    //    List<Transform> orbs = OrbSpawner.Instance.spawnedOrbs;
-
-    //    // Use OverlapSphere to detect orbs within range
-    //    Collider[] hitColliders = Physics.OverlapSphere(transform.position, detectionRange, orbDetectionLayer);
-
-    //    // Loop through all colliders detected by OverlapSphere
-    //    foreach (var hitCollider in hitColliders)
-    //    {
-    //        // Check if the collider is an orb
-    //        if (orbs.Contains(hitCollider.transform))
-    //        {
-    //            Vector3 orbPosition = hitCollider.transform.position;
-    //            orbPosition.y = 0;  // Ensure the y-position is neutral for comparison
-
-    //            // Calculate the distance to this orb
-    //            Vector3 directionToOrb = orbPosition - transform.position;
-    //            directionToOrb.y = 0; // Ignore the vertical axis to make it horizontal
-
-    //            float distance = directionToOrb.magnitude;
-
-    //            // Check if this orb is closer than the previous closest
-    //            if (distance < minDistance)
-    //            {
-    //                minDistance = distance;
-    //                closest = hitCollider.transform;
-    //            }
-    //        }
-    //    }
-
-    //    // If the closest orb is within the eating distance, destroy it
-    //    if (minDistance < eatDistance && closest != null)
-    //    {
-    //        OrbSpawner.Instance.DestroyOrb(closest.gameObject);
-    //    }
-
-    //    return closest;
-    //}
 
     public Transform GetClosestOrb()
     {
@@ -155,7 +102,6 @@ public class EnemyManager : MonoBehaviour
         {
             if (hitCollider.CompareTag("Player")) // Assuming player has the "Player" tag
             {
-                Debug.Log(hitCollider.transform.name);
                 return true;  // Player detected within range
             }
         }
@@ -215,7 +161,9 @@ public class EnemyManager : MonoBehaviour
 #endif
     private void OnCollisionEnter(Collision collision)
     {
-        if (!collision.gameObject.CompareTag("Floor")) return;
-        rb.isKinematic = true;
+        if (collision.gameObject.CompareTag("Floor") || collision.gameObject.CompareTag("Obstacle"))
+        {
+            rb.isKinematic = true;
+        }
     }
 }

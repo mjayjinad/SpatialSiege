@@ -10,7 +10,7 @@ public class EnemySpawnerHandler : MonoBehaviour
     public Wave currentWave;
     private int waveIndex = 0;
     public bool waveInitialized = false;
-    private bool isGameOver;
+    public bool isGameOver;
 
     // Singleton instance
     public static EnemySpawnerHandler Instance { get; private set; }
@@ -27,16 +27,10 @@ public class EnemySpawnerHandler : MonoBehaviour
         }
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        //MRUK.Instance.SceneLoadedEvent.AddListener(InitializeWave);
-        //InitializeWave();
-    }
-
     public void InitializeWave()
     {
         currentWave = Wave.Wave1;
+        waveIndex = 0;
         GameEventManager.Instance.OnWaveEnded(currentWave);
         waveInitialized = true;
     }
@@ -46,7 +40,6 @@ public class EnemySpawnerHandler : MonoBehaviour
         if (!waveInitialized) return;
         if(spawnedDrone.Count == 0 && isGameOver == false)
         {
-            Debug.Log("Next wave called");
             LoadNextWave();
         }
     }
@@ -62,12 +55,23 @@ public class EnemySpawnerHandler : MonoBehaviour
         else
         {
             GameWon();
-            isGameOver = true;
         }
+    }
+
+    public void GameOver()
+    {
+        foreach (GameObject orb in spawnedDrone)
+        {
+            Destroy(orb);
+        }
+
+        spawnedDrone.Clear();
+        waveInitialized = false;
     }
 
     private void GameWon()
     {
         GameManager.Instance.WinPlayerState();
+        isGameOver = true;
     }
 }

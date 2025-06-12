@@ -34,8 +34,6 @@ public class OrbSpawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //MRUK.Instance.RegisterSceneLoadedCallback(InitializeOrb);
-        //InitializeOrb();
         GameEventManager.Instance.OnWaveEndedEvent += ReloadOrbsOnWaveEnded;
     }
 
@@ -60,7 +58,6 @@ public class OrbSpawner : MonoBehaviour
             MRUKRoom room = MRUK.Instance.GetCurrentRoom();
             LabelFilter labelFilter = new LabelFilter(spawnLabel);
 
-            bool positionFound = false;
             currentSpawnTryCount = 0;  // Reset the spawn attempt count for each orb spawn
 
             // Retry logic
@@ -68,19 +65,12 @@ public class OrbSpawner : MonoBehaviour
             {
                 bool hasFound = room.GenerateRandomPositionOnSurface(MRUK.SurfaceType.FACING_UP, minEdgeDistance, labelFilter, out randomPosition, out Vector3 norm);
                 
-                if (hasFound && IsPositionOnNavMesh(randomPosition))
+                if (hasFound)
                 {
-                    positionFound = true;  // Valid position found
                     break;  // Exit the while loop if a valid position is found
                 }
 
                 currentSpawnTryCount++;
-            }
-
-            if (!positionFound)
-            {
-                Debug.LogWarning("Failed to find a valid position for orb after " + maxSapwnTryCount + " attempts.");
-                continue;  // Skip spawning this orb and move to the next iteration
             }
 
             // Ensure the orb's y position is set correctly
@@ -92,19 +82,19 @@ public class OrbSpawner : MonoBehaviour
         }
     }
 
-    private bool IsPositionOnNavMesh(Vector3 position)
+    public void GameOver()
     {
-        NavMeshHit hit;
-        if (NavMesh.SamplePosition(position, out hit, 20.0f, NavMesh.AllAreas))  // Increased maxDistance
+        foreach (var orb in spawnedOrbs)
         {
-            return true;
+            Destroy(orb.gameObject);
         }
-        Debug.Log("Couldn't find a position");
-        return false;
+
+        spawnedOrbs.Clear();
     }
 
     private void ReloadOrbsOnWaveEnded(Wave wave)
     {
+        if (EnemySpawnerHandler.Instance.waveInitialized == false) return;
         foreach (var orb in spawnedOrbs)
         {
             Destroy(orb.gameObject);

@@ -10,8 +10,11 @@ public class GameManager : MonoBehaviour
     [SerializeField] OVRPassthroughLayer winLayer;
     [SerializeField] OVRPassthroughLayer deadLayer;
 
+    [SerializeField] private Transform player;
     [SerializeField] private OrbSpawner orbSpawner;
     [SerializeField] private GameObject winUI;
+    [SerializeField] private GameObject gameOverUI;
+    [SerializeField] private GameObject homepageUI;
     [SerializeField] private GameObject gun;
     [SerializeField] private AudioSource speaker;
     [SerializeField] private AudioClip gameSoundClip;
@@ -30,6 +33,7 @@ public class GameManager : MonoBehaviour
         else
         {
             Instance = this;
+            DontDestroyOnLoad(gameObject);
         }
     }
 
@@ -37,7 +41,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         passthroughLayerController = GetComponent<PassthroughLayerController>();
-        MRUK.Instance.RegisterSceneLoadedCallback(AlivePlayerState);
+        AlivePlayerState();
     }
 
     private void AlivePlayerState()
@@ -49,8 +53,6 @@ public class GameManager : MonoBehaviour
     {
         passthroughLayerController.SetActiveLayer(deadLayer);
 
-        gun.SetActive(false);
-        PlaySound(gameOverClip, false);
     }
 
     public void WinPlayerState()
@@ -61,15 +63,32 @@ public class GameManager : MonoBehaviour
         winUI.SetActive(true);
     }
 
+    public void GameOver()
+    {
+        DeadPlayerState();
+        gameOverUI.SetActive(true);
+        gun.SetActive(false);
+        PlaySound(gameOverClip, false);
+        orbSpawner.GameOver();
+        EnemySpawnerHandler.Instance.GameOver();
+    }
+
     public void RestartGame()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        homepageUI.SetActive(true);
+        gameOverUI.SetActive(false);
+        winUI.SetActive(false);
+        AlivePlayerState();
+        player.tag = "Player";
+        player.GetComponent<PlayerHealthManager>().isPlayerDead = false;
+        EnemySpawnerHandler.Instance.waveInitialized = false;
+        EnemySpawnerHandler.Instance.isGameOver = false;
     }
 
     public void StartGame()
     {
-        EnemySpawnerHandler.Instance.InitializeWave();
         orbSpawner.InitializeOrb();
+        EnemySpawnerHandler.Instance.InitializeWave();
         PlaySound(gameSoundClip, true);
     }
 

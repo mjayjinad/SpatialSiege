@@ -55,7 +55,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -4065108769912319095, guid: dd0d78026410170488b6daa915468c5f, type: 3}
+  - {fileID: 2100000, guid: 20b603890050cae4ea7b01350aa90d0e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -282,7 +282,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -4065108769912319095, guid: dd0d78026410170488b6daa915468c5f, type: 3}
+  - {fileID: 2100000, guid: 20b603890050cae4ea7b01350aa90d0e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -531,7 +531,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -4065108769912319095, guid: dd0d78026410170488b6daa915468c5f, type: 3}
+  - {fileID: 2100000, guid: 20b603890050cae4ea7b01350aa90d0e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -757,7 +757,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -4065108769912319095, guid: dd0d78026410170488b6daa915468c5f, type: 3}
+  - {fileID: 2100000, guid: 20b603890050cae4ea7b01350aa90d0e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -889,7 +889,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -4065108769912319095, guid: dd0d78026410170488b6daa915468c5f, type: 3}
+  - {fileID: 2100000, guid: 20b603890050cae4ea7b01350aa90d0e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -989,7 +989,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -4065108769912319095, guid: dd0d78026410170488b6daa915468c5f, type: 3}
+  - {fileID: 2100000, guid: 20b603890050cae4ea7b01350aa90d0e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1089,7 +1089,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -4065108769912319095, guid: dd0d78026410170488b6daa915468c5f, type: 3}
+  - {fileID: 2100000, guid: 20b603890050cae4ea7b01350aa90d0e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1377,7 +1377,7 @@ MonoBehaviour:
   patrol: 0
   isKillerDrone: 0
   deathDelay: 5
-  eatDistance: 0.3
+  eatDistance: 0.2
   detectionRange: 1.5
   playerDetectionLayer:
     serializedVersion: 2

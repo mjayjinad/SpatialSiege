@@ -4,9 +4,8 @@ using UnityEngine;
 public class PlayerHealthManager : MonoBehaviour
 {
     [SerializeField] private float health = 100;
-    [SerializeField] private GameObject gameUI;
 
-    private bool isPlayerDead = false;
+    public bool isPlayerDead = false;
 
     private void Start()
     {
@@ -31,8 +30,7 @@ public class PlayerHealthManager : MonoBehaviour
         // Handle player death here (e.g., show Game Over screen, respawn, etc.)
         Debug.Log("Player is dead!");
         isPlayerDead = true;
-        GameManager.Instance.DeadPlayerState();
-        gameUI.SetActive(true);
+        GameManager.Instance.GameOver();
         gameObject.tag = "Untagged";
     }
 

@@ -17,6 +17,7 @@ TagManager:
   - QDSUIBackplateGradient
   - Plasma
   - Floor
+  - Obstacle
   layers:
   - Default
   - TransparentFX

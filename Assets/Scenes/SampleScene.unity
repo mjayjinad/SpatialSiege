@@ -709,6 +709,8 @@ MonoBehaviour:
   deadLayer: {fileID: 770555878}
   orbSpawner: {fileID: 1163433228}
   winUI: {fileID: 1847690793}
+  gameOverUI: {fileID: 1998460016}
+  homepageUI: {fileID: 3026702687317762236}
   gun: {fileID: 405279091}
   speaker: {fileID: 76577768}
   gameSoundClip: {fileID: 8300000, guid: 59415c61532d918428ca5ff8bf995e43, type: 3}
@@ -16364,7 +16366,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 200
-  gameUI: {fileID: 1998460016}
 --- !u!1 &2139648886
 GameObject:
   m_ObjectHideFlags: 0
