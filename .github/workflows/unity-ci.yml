@@ -8,7 +8,7 @@ on:
 
 jobs:
   build:
-    name: Build for Windows
+    name: Build for Android
     runs-on: ubuntu-latest
 
     steps:
