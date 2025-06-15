@@ -40,4 +40,12 @@ jobs:
         with:
           name: UnityEditorLog-${{ matrix.targetPlatform }}
           path: /github/home/.config/unity3d/Editor.log
+      - name: Print Unity Editor log
+        if: failure()
+        run: |
+          cat /github/home/.config/unity3d/Editor.log || \
+          cat /root/.config/unity3d/Editor.log || \
+          cat ~/.config/unity3d/Editor.log || \
+          echo "No Unity log found"
+
 
