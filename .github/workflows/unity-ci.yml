@@ -22,7 +22,7 @@ jobs:
           key: Library-${{ runner.os }}-${{ hashFiles('**/Assets/**', '**/Packages/**', '**/ProjectSettings/**') }}
 
       - name: Set up Unity
-        uses: game-ci/unity-actions/setup@v4
+        uses: game-ci/unity-builder@v4
         with:
           unityVersion: 6000.0.47f1 # ← Change to your Unity version
 
