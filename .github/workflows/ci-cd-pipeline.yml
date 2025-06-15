@@ -116,8 +116,8 @@ jobs:
       timeoutMinutes: ${{ fromJson(needs.unpack_inputs.outputs.timeoutMinutesBuild) }}
       retentionDays: ${{ fromJson(needs.unpack_inputs.outputs.retentionDays) }}
     secrets:
-      UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
-      UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
+      # UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
+      # UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
       UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
 
   # ─────────────────────────────────────────────────────────────────────────────
