@@ -1,0 +1,32 @@
+name: Unity CI Build
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build:
+    name: Build for Windows
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Cache Unity library
+        uses: actions/cache@v3
+        with:
+          path: Library
+          key: Library-${{ runner.os }}-${{ hashFiles('**/Assets/**', '**/Packages/**', '**/ProjectSettings/**') }}
+
+      - name: Set up Unity
+        uses: game-ci/unity-actions/setup@v4
+        with:
+          unityVersion: 6000.0.47f1 # ← Change to your Unity version
+
+      - name: Build project
+        uses: game-ci/unity-builder@v4
+        with:
+          targetPlatform: Android
