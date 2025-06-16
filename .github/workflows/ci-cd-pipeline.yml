@@ -52,7 +52,10 @@ jobs:
           testData='${{ inputs.testDataConfig }}'
 
           #Test Data Config
-          echo "unityVersion=$(echo "$testData" | jq -r .unityVersion)" >> "$GITHUB_OUTPUT"
+          UNITY_VERSION=$(echo "$testData" | jq -r .unityVersion)
+          echo "unityVersion=$UNITY_VERSION" >> "$GITHUB_OUTPUT"
+          echo "::notice ::🎯 Parsed unityVersion: $UNITY_VERSION"
+
           echo "useGitLfs=$(echo "$testData" | jq -r .useGitLfs)" >> "$GITHUB_OUTPUT"
           echo "editModePath=$(echo "$testData" | jq -r .editModePath)" >> "$GITHUB_OUTPUT"
           echo "playModePath=$(echo "$testData" | jq -r .playModePath)" >> "$GITHUB_OUTPUT"
