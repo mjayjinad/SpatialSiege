@@ -7,7 +7,7 @@ on:
       buildType:
         description: "Build type: 'preview' for manual/dev builds, 'release_candidate' for staging (e.g., v1.2.3-rc.1), 'release' for production (e.g., v1.2.3)"
         required: true
-        default: "preview"
+        default: "release"
         type: choice
         options:
           - preview
@@ -16,7 +16,7 @@ on:
       skipTests:
         description: "Whether tests should be skipped"
         required: true
-        default: "default"
+        default: "false"
         type: choice
         options:
           - 'default'
@@ -25,12 +25,12 @@ on:
       deployTargets:
         description: "JSON array of deploy targets (e.g. [\"itch.io\",\"s3\"])"
         required: true
-        default: '["gh-pages"]'
+        default: '["itch.io"]'
         type: string
       buildTargets:
         description: "JSON array of build targets (e.g. [\"WebGL\",\"iOS\"])"
         required: true
-        default: '["WebGL"]'
+        default: '["Android"]'
         type: string
       buildVersion:
         description: Optional version override
