@@ -51,6 +51,9 @@ jobs:
           artifact='${{ inputs.artifactConfig }}'
           testData='${{ inputs.testDataConfig }}'
 
+          echo "📦 testDataConfig Raw Input:"
+          echo '${{ inputs.testDataConfig }}'
+
           #Test Data Config
           UNITY_VERSION=$(echo "$testData" | jq -r .unityVersion)
           echo "unityVersion=$UNITY_VERSION" >> "$GITHUB_OUTPUT"
