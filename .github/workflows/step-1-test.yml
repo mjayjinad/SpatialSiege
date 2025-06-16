@@ -55,8 +55,6 @@ jobs:
   upload_unity_license:
     name: 📥️ Upload Unity License
     uses: ./.github/workflows/unity-license-uploader.yml
-    with:
-      unityVersion: ${{ inputs.unityVersion }}
     secrets:
       inherit
 
