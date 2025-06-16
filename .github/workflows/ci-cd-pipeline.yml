@@ -86,7 +86,7 @@ jobs:
     if: ${{ needs.unpack_inputs.outputs.skipTests != 'true' }}
     needs: unpack_inputs
     # uses: avalin/unity-ci-templates/.github/workflows/step-1-test.yml@v1
-    uses: ./.github/workflows/custom-step-1-test.yml
+    uses: ./.github/workflows/step-1-test.yml
     
     with:
       unityVersion: ${{ needs.unpack_inputs.outputs.unityVersion }}
